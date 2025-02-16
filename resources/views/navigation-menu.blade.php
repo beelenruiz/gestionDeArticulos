@@ -18,11 +18,16 @@
                     <x-nav-link href="{{ route('inicio') }}" :active="request()->routeIs('inicio')">
                         <i class="fa-solid fa-house mr-1"></i>{{ __('Inicio') }}
                     </x-nav-link>
+                    @auth
                     <x-nav-link href="{{ route('showuserarticles') }}" :active="request()->routeIs('showuserarticles')">
                         <i class="fa-solid fa-inbox mr-1"></i>{{ __('Mis artículos') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('tags.index') }}" :active="request()->routeIs('tags.index')">
                         <i class="fa-solid fa-tag mr-1"></i>{{ __('Etiquetas') }}
+                    </x-nav-link>
+                    @endauth
+                    <x-nav-link href="{{ route('contacto.pintar') }}" :active="request()->routeIs('contacto.*')">
+                        <i class="fa-solid fa-plane mr-1"></i>{{ __('Contactanos') }}
                     </x-nav-link>
                 </div>
             </div>
