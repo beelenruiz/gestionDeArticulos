@@ -25,7 +25,7 @@ class Article extends Model
     }
 
 
-    // para que title y content
+    // para que title y content se guarden en mayuscula
     public function title(): Attribute{
         return Attribute::make(
             set: fn(string $v) => ucfirst($v),

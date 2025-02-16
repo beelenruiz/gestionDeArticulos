@@ -1,5 +1,7 @@
 <div>
-    <x-button class="font-bold" wire:click="$set('openCreate', true)"><i class="fas fa-add mr-2"></i>nuevo artículo</x-button>
+    <x-button class="font-bold" wire:click="$set('openCreate', true)">
+        <i class="fas fa-add mr-2"></i>nuevo artículo
+    </x-button>
 
     <x-dialog-modal wire:model="openCreate">
         <x-slot name="title">
@@ -22,7 +24,7 @@
             </div>
 
             <div class="mb-6">
-                <label for="tag" class="block text-lg font-medium text-gray-700 mb-2">Etiqueta</label>
+                <label for="tag" class="block text-medium font-medium text-gray-700 mb-2">Etiqueta</label>
                 <select id="tag" wire:model="cform.tag_id" name="tag" class="w-full p-2 text-medium rounded-lg focus:ring-slate-700 focus:border-slate-700">
                   <option selected>Seleccionar etiqueta</option>
                   @foreach($tags as $item)

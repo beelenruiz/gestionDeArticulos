@@ -3,7 +3,7 @@
     <div class="flex m-auto w-3/4 items-center mb-2 justify-between">
         <form class="w-1/4">
             <div class="flex">
-                <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
+                <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"></label>
                 <div class="relative w-full">
                     <x-input wire:model.live="buscar" type="search" id="search-dropdown" class="rounded-lg block p-2 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Buscar..." required />
                     <button type="submit" class="absolute top-0 end-0 p-2 text-sm font-medium h-full text-white bg-slate-600 rounded-e-lg hover:bg-slate-700 focus:ring-4 focus:outline-none focus:ring-slate-700">

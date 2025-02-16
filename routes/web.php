@@ -20,5 +20,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/userarticles', ShowUsersArticles::class) -> name('showuserarticles');
-    Route::resource('tags', TagController::class);
+    Route::resource('tags', TagController::class) -> except('show') -> middleware('is_admin');
 });
