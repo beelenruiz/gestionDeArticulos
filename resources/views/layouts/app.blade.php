@@ -25,7 +25,7 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-slate-300">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -46,5 +46,15 @@
         @stack('modals')
 
         @livewireScripts
+        <script>
+        Livewire.on('mensaje', txt => {
+            Swal.fire({
+                icon: "success",
+                title: txt,
+                showConfirmButton: false,
+                timer: 1500
+            });
+        })
+        </script>
     </body>
 </html>
