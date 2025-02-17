@@ -1,4 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# <div align="center"> ✧ Proyecto Laravel - CRUD de Artículos ✧ <br>
+### <div align="center"> - Belén Ruiz Morales - </div>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200" alt="Laravel Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -7,60 +9,109 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## 📝 Descripción del Proyecto
+Este proyecto esta diseñado para la gestión de artículos y etiquetas, desarrollada con Laravel y Jetstream. Permite a los usuarios crear, editar y eliminar sus propios artículo. Inplementa autenticación, autorización con políticas, CRUD con Livewire y sistema de contacto con Mailtrap.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#### RELACIONES
+- Relacion 1:N entre users y artículos -> Un usuario puede tener varios artículos pero un mismo artículo pertenece a un solo usuario.
+- Relacion 1:N entre tags y artículos -> Un artículo pertenece a una única etiqueta pero una misma etiqueta puede tener muchos artículos.
+<br><br>
+![Captura de pantalla 2025-02-16 190932](https://github.com/user-attachments/assets/754a9c0e-2c8e-40ad-9e5b-ae1e8c2e3685)
+<br>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 💻 Desarrollo del Proyecto 
+1. Laravel Jetstream con Livewire para la estructura y lógica.
+2. SQLite como base de datos por defecto en el entorno de desarrollo.
+3. Factories y Seeders con Faker para la generación de datos de prueba.
+4. Blade y Livewire para la gestión de vistas dinámicas.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🛠️ Lenguajes y Tecnologías
+- **PHP:** Lenguaje principal.
+- **Laravel:** Framework de desarrollo.
+- **SQLite:** Base de Datos.
+- **Livewire:** Componentes dinámicos en Laravel.
+- **Blade:** Plantillas para las vistas.
+- **Tailwind CSS:** Encargado de diseño visual y estilos responsivos.
+- **SweetAlert:** Notificaciones.
+- **Font Awesome:** Iconos.
+<br><br>
 
-## Learning Laravel
+##  📂 Estructura del proyecto
+```
+├── app/
+│   ├── Http/
+|   |    ├── Controllers/        # Controladores
+|   |    └── Middleware/
+|   ├── Livewire/                # Componentes livewire
+|   |    └── Forms               # Formularios para update y create
+|   ├── Mail/
+│   ├── Models/                  # Modelos de base de datos
+|   └── Polices/
+|
+├── database/
+│   ├── migrations/              # Migraciones de base de datos
+│   ├── seeders/                 # Generación de datos
+│   └── factories/
+|
+├── resources/
+│   ├── views/
+│       ├── tags/          # Vistas relacionadas con tags
+│       │   ├── create.blade.php 
+│       │   ├── edit.blade.php   
+│       │   └── index.blade.php  
+│       ├── livewire/            # Vistas relacionadas con articles
+│       │   ├── create-articles.blade.php 
+│       │   └── show-users-articles.blade.php
+│       ├── formcorreo/            # Vistas del formulario de contacto
+│       │   └── fcontacto.blade.php
+│       ├── vistasmails/            # Vistas del correo de contacto
+│       │   └── vistacontacto.blade.php 
+|       
+├── routes/
+│   ├── web.php                  # Rutas web
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📖 Instalación y Configuración
+```
+# Clonar el repositorio
+git clone https://github.com/beelenruiz/gestionDeArticulos.git
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+# Ingresar al directorio del proyecto
+cd gestionDeArticulos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#Instalar dependencias
+npm install
+composer install
 
-## Laravel Sponsors
+# Configurar variables de entorno
+cp .env.example .env
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+# Ejecutar migraciones y seeders para generar datos iniciales
+php artisan migrate --seed
 
-### Premium Partners
+#Iniciar el servidor
+composer dev  (->  ejecuta a la vez php artisan serve y npm run dev)
+```
+Accede al proyecto en tu navegador en la dirección http://localhost:8000/.
+<br><br>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 📸 Imágenes
+![image](https://github.com/user-attachments/assets/ff34c867-8071-4c6b-bb16-68521d2351a1)
+![image](https://github.com/user-attachments/assets/9273e4b3-33ef-42eb-a357-bd6c3a35a4bc)
 
-## Contributing
+<img src="https://github.com/user-attachments/assets/80f946aa-ad68-461d-a2b7-50ef623db351" style="width: 49%; margin: 0 auto;">
+<img src="https://github.com/user-attachments/assets/c9adbc44-16b8-4f07-a6dd-232f4a4dbe6f" style="width: 49%; margin: 0 auto;">
+<br><br>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📋 Adicional
+- Policy para garantizar que los usuarios solo pueden editar y borrar sus artículos.
+- Middleware para restringir acceso a administradores al CRUD de tags.
+- Búsqueda y ordenamiento dinámico en tablas.
+- Uso de Mailtrap para probar la seccion de contacto del proyecto.
 
-## Code of Conduct
+## 👥 Autora
+**Belén Ruiz Morales**,  Estudiante de 2º DAW.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### ✉ Contacto
+- belenrumo2005@gmail.com
+- [mi perfil de linkedin](https://www.linkedin.com/in/belen-ruiz-499b8b275/)
